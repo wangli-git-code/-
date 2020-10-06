@@ -3,6 +3,7 @@ using namespace std;
 const int max_word = 1024;
 char token[1024];
 char in[1024];
+char s[1024];
 FILE *fin,*fout;
 int cnt = 0,token_num = 0;
 int row = 1;
@@ -10,6 +11,13 @@ int flag = 0;
 char ch;
 char keyWord[7][33] = {"BEGIN","END","FOR","IF","THEN","ELSE"};
 char keyWord1[7][33] = {"Begin","End","For","If","Then","Else"};
+char a1[20]="LParenthesis";
+char a2[20]="RParenthesis";
+char a3[20]="Plus";
+char a4[20]="Star";
+char a5[20]="Comma";
+char a6[20]="Assign";
+char a7[20]="Colin";
 
 void init_token(){
 	int i;
@@ -42,42 +50,40 @@ char* judge_token(){
 				return keyWord1[i];
 			}
 		}
-		char a[1024];
-		for(int j=0;j<1024;j++) a[j]=0;
-				strcat(a,"Ident(");
-                strcat(a,token);
-                strcat(a,")");
-		return a;
+		for(int j=0;j<1024;j++) s[j]=0;
+				strcat(s,"Ident(");
+                strcat(s,token);
+                strcat(s,")");
+		return s;
 	}
 	else if(ch >= '0' && ch <= '9'){
 		while(ch >= '0'&& ch <= '9'){
 			token[token_num++] = ch;
 			ch = getc(fin);
 		}
-		char a[1024];
-		for(int j=0;j<1024;j++) a[j]=0;
-				strcat(a,"Int(");
-                strcat(a,token);
-                strcat(a,")");
-		return a;
+		for(int j=0;j<1024;j++) s[j]=0;
+				strcat(s,"Int(");
+                strcat(s,token);
+                strcat(s,")");
+		return s;
 	}
 	else{
 		token[token_num++] = ch;
 		switch(ch){
-			case '(': ch = getc(fin); return "LParenthesis";
-			case ')': ch = getc(fin); return "RParenthesis";
-			case '+': ch = getc(fin); return "Plus";
-			case '*': ch = getc(fin); return "Star";
-			case ',': ch = getc(fin); return "Comma";
+			case '(': ch = getc(fin); return a1;
+			case ')': ch = getc(fin); return a2;
+			case '+': ch = getc(fin); return a3;
+			case '*': ch = getc(fin); return a4;
+			case ',': ch = getc(fin); return a5;
 			case ':':{
 				ch = getc(fin);
 				if(ch == '='){
 					token[token_num++] = ch;
 					ch = getc(fin);
-					return "Assign";
+					return a6;
 				}
 				else{
-					return "Colin";
+					return a7;
 				}
 			}
 			default: ch = getc(fin); return NULL;
