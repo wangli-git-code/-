@@ -86,7 +86,7 @@ char* judge_token(){
 }
 
 int main(){
-	fin = fopen("compiler.txt","r");
+	fin = fopen("$input","r");
 	char *temp=NULL;
 	while(1){
 		temp = judge_token();
