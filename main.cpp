@@ -20,7 +20,7 @@ char a4[20]="Star";
 char a5[20]="Comma";
 char a6[20]="Assign";
 char a7[20]="Colon";
-
+char a8[20]="Unkonwn";
 void init_token(){
 	int i;
 	for(i = 0;i < 1024;i++){
@@ -90,7 +90,7 @@ char* judge_token(){
 					return a7;
 				}
 			}
-			default: ch = getc(fin); return NULL;
+			default: ch = getc(fin); cout<<a8<<endl;return NULL;
 		}
 	}
 }
