@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<cstring>
+#include<fstream>
 using namespace std;
 const int max_word = 1024;
 char token[1024];
