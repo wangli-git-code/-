@@ -93,8 +93,8 @@ char* judge_token(){
 	}
 }
 
-int main(){
-	fin = fopen("$input","r");
+int main(char argc, char **argv){
+	fin = fopen(argv[1],"r");
 	char *temp=NULL;
 	while(1){
 		temp = judge_token();
