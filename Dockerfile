@@ -1,4 +1,4 @@
-FROM gcc:10
+FROM cpp_gcc
 WORKDIR /app/
 COPY ./* ./
 RUN g++ main.cpp -o program
