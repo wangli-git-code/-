@@ -19,7 +19,7 @@ char a3[20]="Plus";
 char a4[20]="Star";
 char a5[20]="Comma";
 char a6[20]="Assign";
-char a7[20]="Colin";
+char a7[20]="Colon";
 
 void init_token(){
 	int i;
