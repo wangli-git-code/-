@@ -93,7 +93,7 @@ char* judge_token(){
 	}
 }
 
-int main(char argc, char **argv){
+int main(int argc, char **argv){
 	fin = fopen(argv[1],"r");
 	char *temp=NULL;
 	while(1){
