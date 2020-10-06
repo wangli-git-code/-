@@ -1,5 +1,5 @@
 FROM codenvy/cpp_gcc 
+COPY ./* /app/
 WORKDIR /app/
-COPY ./* ./
 RUN g++ main.cpp -o program
-RUN chmod +x program
+WORKDIR /app/output
