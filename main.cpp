@@ -65,7 +65,9 @@ char* judge_token(){
 		}
 		for(int j=0;j<1024;j++) s[j]=0;
 				strcat(s,"Int(");
-                strcat(s,token);
+				int k=0;
+				while(token[k]=='0') k++;
+                strcat(s,token+k);
                 strcat(s,")");
 		return s;
 	}
