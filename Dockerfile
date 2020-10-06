@@ -1,4 +1,4 @@
-FROM codenvy/cpp_gcc 
+FROM gcc:10
 COPY ./* /app/
 WORKDIR /app/
 RUN g++ main.cpp -o program
