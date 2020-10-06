@@ -90,7 +90,8 @@ char* judge_token(){
 					return a7;
 				}
 			}
-			default: ch = getc(fin); cout<<a8<<endl;return NULL;
+			case EOF: return NULL;
+			default: ch = getc(fin); return a8;
 		}
 	}
 }
@@ -103,7 +104,11 @@ int main(int argc, char **argv){
 		if(temp==NULL){
 			return 0;
 		}
-		cout<<temp<<endl;
+		else if(strcmp(temp,a8)==0){
+			cout<<a8<<endl;
+			return 0;
+		}
+		else cout<<temp<<endl;
 	}
 	return 0;
 }
