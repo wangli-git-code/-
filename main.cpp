@@ -2,28 +2,27 @@
 #include<cstring>
 #include<fstream>
 using namespace std;
-const int max_word = 1024;
-char token[1024];
-char in[1024];
-char s[1024];
+char token[55];
+char in[55];
+char s[55];
 FILE *fin,*fout;
 int cnt = 0,token_num = 0;
 int row = 1;
 int flag = 0;
 char ch;
-char keyWord[7][33] = {"BEGIN","END","FOR","IF","THEN","ELSE"};
-char keyWord1[7][33] = {"Begin","End","For","If","Then","Else"};
-char a1[20]="LParenthesis";
-char a2[20]="RParenthesis";
-char a3[20]="Plus";
-char a4[20]="Star";
-char a5[20]="Comma";
-char a6[20]="Assign";
-char a7[20]="Colon";
-char a8[20]="Unkonwn";
+char keyWord[7][55] = {"BEGIN","END","FOR","IF","THEN","ELSE"};
+char keyWord1[7][55] = {"Begin","End","For","If","Then","Else"};
+char a1[55]="LParenthesis";
+char a2[55]="RParenthesis";
+char a3[55]="Plus";
+char a4[55]="Star";
+char a5[55]="Comma";
+char a6[55]="Assign";
+char a7[55]="Colon";
+char a8[55]="Unkonwn";
 void init_token(){
 	int i;
-	for(i = 0;i < 1024;i++){
+	for(i = 0;i < 55;i++){
 		token[i] = 0;
 	}
 }
@@ -52,7 +51,7 @@ char* judge_token(){
 				return keyWord1[i];
 			}
 		}
-		for(int j=0;j<1024;j++) s[j]=0;
+		for(int j=0;j<55;j++) s[j]=0;
 				strcat(s,"Ident(");
                 strcat(s,token);
                 strcat(s,")");
@@ -63,7 +62,7 @@ char* judge_token(){
 			token[token_num++] = ch;
 			ch = getc(fin);
 		}
-		for(int j=0;j<1024;j++) s[j]=0;
+		for(int j=0;j<55;j++) s[j]=0;
 				strcat(s,"Int(");
 				int k=0;
 				while(token[k]=='0') k++;
