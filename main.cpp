@@ -19,7 +19,7 @@ char a4[55]="Star";
 char a5[55]="Comma";
 char a6[55]="Assign";
 char a7[55]="Colon";
-char a8[55]="Unkonwn";
+char a8[55]="Unknown";
 void init_token(){
 	int i;
 	for(i = 0;i < 55;i++){
