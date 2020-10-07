@@ -19,7 +19,8 @@ char a4[55]="Star";
 char a5[55]="Comma";
 char a6[55]="Assign";
 char a7[55]="Colon";
-char a8[55]="Unknown";
+char a8[55]="Unkonwn";
+char zero[2]="0";
 void init_token(){
 	int i;
 	for(i = 0;i < 55;i++){
@@ -65,8 +66,19 @@ char* judge_token(){
 		for(int j=0;j<55;j++) s[j]=0;
 				strcat(s,"Int(");
 				int k=0;
-				while(token[k]=='0') k++;
-                strcat(s,token+k);
+				int t=0;
+				for(int m=0;m<strlen(token);m++){
+					if(token[m]=='0'){
+						k=m;
+					}
+					else {
+						k=m;
+						t=1;
+						break;
+					}
+				}
+				if(t==0) strcat(s,zero);
+                else strcat(s,token+k);
                 strcat(s,")");
 		return s;
 	}
