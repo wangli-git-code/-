@@ -18,21 +18,27 @@ char d,ch;
 int i,j,k;
 char e;
 int h[200];
-void init_token(){
+int init_token(){
 	int i;
 	for(i = 0;i < 1024;i++){token[i] = 0;}
 	cnt=0;
 	ch=getc(fin);
 	while((ch!='\r')&&(ch!='\n')){
-		token[cnt++]=ch;
-		ch=getc(fin);
+		if((ch=='+')||(ch=='*')||(ch=='(')||(ch==')')||(ch=='i')){
+			token[cnt++]=ch;
+			ch=getc(fin);
+		}
+		else {
+			return 0;
+		}
 	}
 	token[cnt++]='#';
+	return 1;
 }
 
 int main(int argc, char **argv){
 	fin = fopen(argv[1],"r");
-	init_token();
+	if(!init_token()) return 0;
 	h['+']=0;
 	h['*']=1;
 	h['i']=2;
