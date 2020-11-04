@@ -54,6 +54,11 @@ int main(int argc, char **argv){
 		}
 		a=ans[q];
 		b=token[s];
+		
+		if(a=='('&&b=='#'){
+			printf("RE\n");
+			return 0;
+		}
 		if(op[h[a]][h[b]]==1||op[h[a]][h[b]]==0){
 			ans[++p]=b;
 			s++;
