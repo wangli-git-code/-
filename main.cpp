@@ -17,7 +17,7 @@ char c;
 char d,ch;
 int i,j,k;
 char e;
-int hash[200];
+int h[200];
 void init_token(){
 	int i;
 	for(i = 0;i < 1024;i++){token[i] = 0;}
@@ -33,12 +33,12 @@ void init_token(){
 int main(int argc, char **argv){
 	fin = fopen(argv[1],"r");
 	init_token();
-	hash['+']=0;
-	hash['*']=1;
-	hash['i']=2;
-	hash['(']=3;
-	hash[')']=4;
-	hash['#']=5;
+	h['+']=0;
+	h['*']=1;
+	h['i']=2;
+	h['(']=3;
+	h[')']=4;
+	h['#']=5;
 	ans[++p]='#';
 	
 	while(true){
@@ -48,12 +48,12 @@ int main(int argc, char **argv){
 		}
 		a=ans[q];
 		b=token[s];
-		if(op[hash[a]][hash[b]]==1||op[hash[a]][hash[b]]==0){
+		if(op[h[a]][h[b]]==1||op[h[a]][h[b]]==0){
 			ans[++p]=b;
 			s++;
 			printf("I%c\n",b);
 		}
-		else if(op[hash[a]][hash[b]]==2){
+		else if(op[h[a]][h[b]]==2){
 			if((a=='+'||a=='*')&&p==q){
 				printf("RE\n");
 				return 0;
@@ -71,7 +71,7 @@ int main(int argc, char **argv){
 					}
 				}
 				k=i;
-				if(op[hash[d]][hash[c]]==0){
+				if(op[h[d]][h[c]]==0){
 					for(j=i-1;j>=0;j--){
 						if(ans[j]!='n') {
 							e=ans[j];
@@ -81,10 +81,10 @@ int main(int argc, char **argv){
 					d=e;
 					k=j;
 				}
-				else if(op[hash[d]][hash[c]]==1){
+				else if(op[h[d]][h[c]]==1){
 					break;
 				}
-				else if(op[hash[d]][hash[c]]==-1){
+				else if(op[h[d]][h[c]]==-1){
 					printf("E\n");
 					return 0;
 				}
@@ -98,7 +98,7 @@ int main(int argc, char **argv){
 				return 0;
 			}
 		}
-		else if(op[hash[a]][hash[b]]==-1){
+		else if(op[h[a]][h[b]]==-1){
 			printf("E\n");
 					return 0;
 		}	
