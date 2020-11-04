@@ -81,11 +81,15 @@ int main(int argc, char **argv){
 					for(j=i-1;j>=0;j--){
 						if(ans[j]!='n') {
 							e=ans[j];
+							break;
 						}
 					}
 					c=d;
 					d=e;
 					k=j;
+					if(op[h[d]][h[c]]==1){
+						break;
+					}
 				}
 				else if(op[h[d]][h[c]]==1){
 					break;
