@@ -54,6 +54,10 @@ int main(int argc, char **argv){
 			printf("I%c\n",b);
 		}
 		else if(op[hash[a]][hash[b]]==2){
+			if((a=='+'||a=='*')&&p==q){
+				printf("RE\n");
+				return 0;
+			}
 			while(true){
 				int times=0;
 				for(i=p;i>=0;i--){
@@ -93,17 +97,11 @@ int main(int argc, char **argv){
 			if(p==1&&ans[0]=='#'&&ans[1]=='n'&&token[s]=='#'){
 				return 0;
 			}
-//			else if(token[s]=='#'&&p!=1){
-//				
-//			}
 		}
 		else if(op[hash[a]][hash[b]]==-1){
 			printf("E\n");
 					return 0;
-		}
-			
+		}	
 	}
-
-	
 	return 0;
 }
