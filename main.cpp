@@ -18,27 +18,21 @@ char d,ch;
 int i,j,k;
 char e;
 int h[200];
-int init_token(){
+void init_token(){
 	int i;
 	for(i = 0;i < 1024;i++){token[i] = 0;}
 	cnt=0;
 	ch=getc(fin);
 	while((ch!='\r')&&(ch!='\n')){
-		if((ch=='+')||(ch=='*')||(ch=='(')||(ch==')')||(ch=='i')){
-			token[cnt++]=ch;
-			ch=getc(fin);
-		}
-		else {
-			return 0;
-		}
+		token[cnt++]=ch;
+		ch=getc(fin);
 	}
 	token[cnt++]='#';
-	return 1;
 }
 
 int main(int argc, char **argv){
 	fin = fopen(argv[1],"r");
-	if(!init_token()) return 0;
+	init_token();
 	h['+']=0;
 	h['*']=1;
 	h['i']=2;
@@ -54,7 +48,10 @@ int main(int argc, char **argv){
 		}
 		a=ans[q];
 		b=token[s];
-		
+		if(b!='#'&&b!='+'&&b!='*'&&b!='('&&b!=')'&&b!='i'){
+			printf("E\n");
+			return 0;
+		}
 		if(a=='('&&b=='#'){
 			printf("RE\n");
 			return 0;
