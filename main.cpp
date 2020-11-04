@@ -22,14 +22,14 @@ void init_token(){
 	int i;
 	for(i = 0;i < 1024;i++){token[i] = 0;}
 	cnt=0;
-	while((ch=getc(fin))!='\n'){
+	ch=getc(fin);
+	while((ch!='\r')&&(ch!='\n')){
 		token[cnt++]=ch;
+		ch=getc(fin);
 	}
 	token[cnt++]='#';
 }
 
-	
-	
 int main(int argc, char **argv){
 	fin = fopen(argv[1],"r");
 	init_token();
